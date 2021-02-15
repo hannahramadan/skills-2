@@ -122,7 +122,33 @@ def translate_to_pirate_talk(phrase):
         'me swabbie be not a man!'
     """
 
-    return ""
+    pirate_translation = {"sir": "matey",
+    "hotel": "fleabag inn",
+    "student": "swabbie",
+    "man": "matey",
+    "professor": "foul blaggart",
+    "restaurant": "galley",
+    "your": "yer",
+    "excuse": "arr",
+    "students": "swabbies",
+    "are": "be",
+    "restroom": "head",
+    "my": "me",
+    "is": "be"
+    }
+
+    new_list = []
+    words = phrase.split(" ")
+
+    for word in words:
+        if word in pirate_translation:
+            new_list.append(pirate_translation[word])
+        else:
+            new_list.append(word)
+
+    return_string = " ".join(new_list)
+
+    return return_string
 
 
 def kids_game(names):
