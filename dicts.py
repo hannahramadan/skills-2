@@ -197,4 +197,61 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
     """
 
-    return []
+    first_word = names[0]
+    
+    new_list = []
+    new_list.append(first_word)
+    last_letter = first_word[-1]
+
+    names_dict = {}
+    names_dict[first_word] = None
+    
+    i = 0
+
+    while i < len(names):
+        if last_letter == names[i][0] and names[i] not in names_dict:
+            names_dict[names[i]] = None
+            new_list.append(names[i])
+            last_letter = names[i][-1]
+            i = 0
+        else:
+            i += 1
+    return(new_list)
+    
+    ##### NOTES AND TESTING BELOW. PLEASE DISREGARD. KEEPING FOR REVIEW.
+    # running  = True
+    
+    # for name in names:
+    #     if last_letter == name[0] and name not in names_dict:
+    #         names_dict[name] = None
+    #         new_list.append(name)
+    #         last_letter = name[-1]
+
+    # for i in range (len(names)):
+    #         if last_letter == names[i][0] and names[i] not in names_dict:
+    #             names_dict[names[i]] = None
+    #             new_list.append(names[i])
+    #             last_letter = names[i][-1]
+    #             i = 0
+
+    # while running == True:
+    #     counter = 0
+    #     for name in names:
+    #         counter += 1
+    #         if counter == len(names):
+    #             running = False
+    #         elif last_letter == name[0] and name not in names_dict:
+    #             names_dict[name] = None
+    #             new_list.append(name)
+    #             last_letter = name[-1]
+    #             break
+    
+    #given list of words
+    #add first word to new list
+    #add firs word to new dict
+    #loop
+        #look at last letter of the word [-1]
+        #check if any entry in the list begins with that word
+        # if yes, check if in dictionary
+            #if entry in dictory, continue looking through list
+            #if not in dict, add to dict and add to list
