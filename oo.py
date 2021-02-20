@@ -63,22 +63,22 @@ class User:
         self.username = username
         self.password = password
     
-    def update_password(self, current_password, new_password):
+    def update_password(self):
 
         i = True
         j = True 
 
         while i == True:
             username_1 = input("What is your username?: ")
-            if username_1 != self.username:
+            if username_1 != username:
                 print("Username not recognzied.")
             else:
                 i = False
                 while j == True:
-                    self.current_password = input("What is your current password?: ") 
-                    if self.current_password == self.password:
-                        self.new_password = input("Please enter your new password: ") 
-                        self.password = self.new_password
+                    current_password = input("What is your current password?: ") 
+                    if current_password == self.password:
+                        new_password = input("Please enter your new password: ") 
+                        self.password = new_password
                         print("Password updated")
                         j = False
                     else:
@@ -87,26 +87,31 @@ class User:
 
 # """4. Build a Library"""
 
+class Book(object):
+    """A Book object."""
 
-# class Book(object):
-#     """A Book object."""
+    def __init__(self, title, author):
+        """Create a book with the given title and author."""
 
-#     def __init__(self, title, author):
-#         """Create a book with the given title and author."""
+        self.title = title
+        self.author = author
 
-#         self.title = title
-#         self.author = author
+class Library():
 
-# class Library:
+    def __init__(self):
+        self.books = []
 
-    # def __init__(self, book):
+    def create_and_add_book(self, title, author):
+        b = Book(title, author)
+        self.books.append(b)
 
-    #     self.book = []
+    def find_books_by_author(self, author):
+        authors_books = []
+        for item in self.books:
+            if getattr(item, "author") == author:
+                authors_books.append(getattr(item, "title"))
+        return authors_books
 
-    # def create_and_add_book(self, title, author):
-
-    # def find_books_by_author(self, author):
-    #     return(books)
 
 # We have given you a class, Book. You’ll use it build a new Library class. 
 # Your Library class needs to meet these specifications:
@@ -121,6 +126,12 @@ class User:
 
 # find_books_by_author, which takes in an author’s name (as a string) and 
 # returns a list of all books by that author
+
+
+
+
+
+
 
 # """5. Rectangle"""
 
@@ -138,3 +149,4 @@ class User:
 #         """Return the area of the rectangle."""
 
 #         return self.length * self.width
+
