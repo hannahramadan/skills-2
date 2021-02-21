@@ -112,41 +112,31 @@ class Library():
                 authors_books.append(getattr(item, "title"))
         return authors_books
 
-
-# We have given you a class, Book. You’ll use it build a new Library class. 
-# Your Library class needs to meet these specifications:
-
-# Each Library object needs an instance attribute called books which 
-# starts off as an empty list
-
-# We also need two methods:
-
-# create_and_add_book, which takes in the title and author of a book (as strings). 
-# It should instantiate a Book object and add it to the Library’s books list
-
-# find_books_by_author, which takes in an author’s name (as a string) and 
-# returns a list of all books by that author
-
-
-
-
-
-
-
 # """5. Rectangle"""
 
 
-# class Rectangle:
-#     """A rectangle."""
+class Rectangle:
+    """A rectangle."""
 
-#     def __init__(self, length, width):
-#         """Create a rectangle with the given length and width."""
+    def __init__(self, length, width):
+        """Create a rectangle with the given length and width."""
 
-#         self.length = float(length)
-#         self.width = float(width)
+        self.length = float(length)
+        self.width = float(width)
 
-#     def calculate_area(self):
-#         """Return the area of the rectangle."""
+    def calculate_area(self):
+        """Return the area of the rectangle."""
 
-#         return self.length * self.width
+        return self.length * self.width
 
+class Square(Rectangle):
+
+    def __init__(self, l_w):
+        super().__init__(l_w, l_w)
+
+    def calculate_area(self):
+        if self.l_w == self.length and self.l_w == self.width:
+            return super().calculate_area()
+        else:
+            print("Invalid square")
+            return None
